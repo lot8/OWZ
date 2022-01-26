@@ -10,7 +10,21 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: test.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
-      <video
+     
+      
+      <a-assets>
+        
+      <a-asset-item id="raccoonModel" src="resources/raccoon/scene.gltf"></a-asset-item>
+      
+      <audio id="song3" src="resources/UPS.mp3"></audio>
+
+      <a-sound id="song2" src="resources/AW.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+      <audio id="drum" src="resources/drum.mp3"></audio>
+
+      <a-sound id="piano" src="resources/piano.mp3" autoplay="false" position="0 2 5"></a-sound>
+        
+        <video
           id="vclip"
           crossorigin="anonymous"
           playsinline
@@ -33,18 +47,6 @@
           class="1"
           muted="true"                 
            ></video>     
-      
-      <a-assets>
-        
-      <a-asset-item id="raccoonModel" src="resources/raccoon/scene.gltf"></a-asset-item>
-      
-      <a-sound id="song3" src="resources/UPS.mp3" autoplay="false" position="0 2 5"></a-sound>
-
-      <a-sound id="song2" src="resources/AW.mp3" autoplay="false" position="0 2 5"></a-sound>
-
-      <a-sound id="drum" src="resources/drum.mp3" autoplay="false" position="0 2 5"></a-sound>
-
-      <a-sound id="piano" src="resources/piano.mp3" autoplay="false" position="0 2 5"></a-sound>
       
       </a-assets>
 
