@@ -76,4 +76,28 @@
         
     </a-scene>
   </body>
+    <!--------------------Target1------------------------------->
+
+<script>
+const exampleTarget1 = document.querySelector('#example-target1');
+
+exampleTarget1.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound2').components.sound.playSound();
+
+console.log("target found");
+});
+
+exampleTarget1.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound2').components.sound.pauseSound();
+
+console.log("target lost");
+});
+</script>
+
 </html>
