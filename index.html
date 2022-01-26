@@ -10,18 +10,38 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: test.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="bearModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
         <a-asset-item id="raccoonModel" src="resources/raccoon/scene.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      
+      <a-sound id="song3" src="resources/UPS.mp3" autoplay="false" position="0 2 5"></a-sound>
 
-      <a-entity mindar-image-target="targetIndex: 0">
+      <a-sound id="song2" src="resources/AW.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+      <a-sound id="drum" src="resources/drum.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+      <a-sound id="piano" src="resources/piano.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+      <a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video>
+
+
+      <a-entity id="example-target1" mindar-image-target="targetIndex: 0">
         <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel" animation-mixer>
       </a-entity>
-      <a-entity mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel" animation-mixer>
-      </a-entity>
+      
+        
+       <a-entity id="thesound3" position="0 2 3" sound="src:#song3; positional:true" ></a-entity>
+
+       <a-entity id="thesound" position="0 2 3" sound="src:#song2; positional:true" ></a-entity>
+
+       <a-entity id="thesound2" position="0 2 3" sound="src:#drum; positional:true; loop:true" ></a-entity>
+
+       <a-entity id="thesound1" position="0 2 3" sound="src:#piano; positional:true; loop:true" ></a-entity>
+
+       <a-entity id="snow" position="0 2.25 -15" visible="false" particle-system="preset: snow; particleCount: 5000"></a-entity>
+
+        
     </a-scene>
   </body>
 </html>
