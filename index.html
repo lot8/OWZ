@@ -22,7 +22,7 @@
 
       <audio id="drum" src="resources/drum.mp3"></audio>
 
-      <a-sound id="piano" src="resources/piano.mp3" autoplay="false" position="0 2 5"></a-sound>
+      <audio id="piano" src="resources/piano.mp3"></audio>
         
         <video
           id="vclip"
@@ -52,12 +52,15 @@
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
-      <a-entity id="example-target"  mindar-image-target="targetIndex: 0">
-        <a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video></a-entity>
+        <a-entity id="example-target"  mindar-image-target="targetIndex: 0">
+         <a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video></a-entity>
 
-      <a-entity id="example-target1" mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="30 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#raccoonModel" animation-mixer>
-      </a-entity>
+        <a-entity id="example-target1" mindar-image-target="targetIndex: 1">
+         <a-gltf-model rotation="30 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#raccoonModel" animation-mixer>
+        </a-entity>
+        
+        <a-entity id="example-target2"  mindar-image-target="targetIndex: 2"></a-entity>
+
       
         
        <a-entity id="thesound3" position="0 2 3" sound="src:#song3; positional:true" ></a-entity>
@@ -101,7 +104,6 @@ var sceneEl = document.querySelector('#vclip').pause();
 console.log("target lost");
 });
 </script>
-
     
     <!--------------------Target1------------------------------->
 
@@ -126,5 +128,34 @@ sceneEl.querySelector('#thesound2').components.sound.pauseSound();
 console.log("target lost");
 });
 </script>
+    
+    <!--------------------Target2------------------------------->
+
+<script>
+const exampleTarget2 = document.querySelector('#example-target2');
+
+exampleTarget2.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#snow').object3D.visible = true;
+
+sceneEl.querySelector('#thesound1').components.sound.playSound();
+
+console.log("target found");
+});
+
+exampleTarget2.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#snow').object3D.visible = false;
+
+sceneEl.querySelector('#thesound1').components.sound.pauseSound();
+
+console.log("target lost");
+});
+</script>
+
 
 </html>
