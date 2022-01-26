@@ -5,9 +5,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="resources/js/mindar-image-aframe.prod.js"></script>
 
-<!-------------------DigDug-------------------------------->
-
-<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
 
 <!-------------------------DigDug-------------------------->
 
@@ -20,10 +18,10 @@
   </head>
 
   <body>
-    <a-scene mindar-image="imageTargetSrc: test.mind" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: test.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
 
-<video
+<!--<video
           id="vclip"
           crossorigin="anonymous"
           playsinline
@@ -45,11 +43,11 @@
           src="resources/AW1.mp4"
           class="1"
           muted="true"                 
-           ></video>
+           ></video>-->
 
 
 <a-assets>
-<a-asset-item id="raccoonModel" src="resources/raccoon/scene.gltf"></a-asset-item>
+<a-asset-item id="raccoonModel" src="resources/fbxAnimation/botWalk.gltf"></a-asset-item>
 </a-assets>
 
 
@@ -66,24 +64,24 @@
 
 <a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video>-->
       
-<a-entity id="example-target"  mindar-image-target="targetIndex: 0">
-<a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video></a-entity>
+<!--<a-entity id="example-target"  mindar-image-target="targetIndex: 0">
+<a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video></a-entity>-->
 
 <a-entity id="example-target1"  mindar-image-target="targetIndex: 1">
 <a-gltf-model rotation="30 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#raccoonModel" animation-mixer></a-entity>
 
-<a-entity id="example-target2"  mindar-image-target="targetIndex: 2">
-</a-entity>
+<!--<a-entity id="example-target2"  mindar-image-target="targetIndex: 2">
+</a-entity>-->
 
-<a-entity id="example-target3"  mindar-image-target="targetIndex: 3">
+<!--<a-entity id="example-target3"  mindar-image-target="targetIndex: 3">
 <a-video src="#vclip1" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video>
-</a-entity>
+</a-entity>-->
 
 <!--<a-entity id="thesound3" position="0 2 3" sound="src:#song3; positional:true" ></a-entity>
 
 <a-entity id="thesound" position="0 2 3" sound="src:#song2; positional:true" ></a-entity>-->
 
-<a-entity id="thesound2" position="0 2 3" sound="src:#drum; positional:true; loop:true" ></a-entity>
+<!--<a-entity id="thesound2" position="0 2 3" sound="src:#drum; positional:true; loop:true" ></a-entity>-->
 
 
 <!--<a-entity id="thesound1" position="0 2 3" sound="src:#piano; positional:true; loop:true" ></a-entity>
