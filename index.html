@@ -1,0 +1,212 @@
+  <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="resources/js/mindar-image-aframe.prod.js"></script>
+
+<!-------------------DigDug-------------------------------->
+
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+
+<!-------------------------DigDug-------------------------->
+
+<script src="resources/js/aframe-particle-system-component.min.js"></script>
+
+
+
+
+
+  </head>
+
+  <body>
+    <a-scene mindar-image="imageTargetSrc: test.mind" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+
+
+<video
+          id="vclip"
+          crossorigin="anonymous"
+          playsinline
+          webkitplaysinline
+          autoplay 
+          controls
+          src="resources/UPS1.mp4"
+          class="1"
+          muted="true"                 
+           ></video>
+
+<video
+          id="vclip1"
+          crossorigin="anonymous"
+          playsinline
+          webkitplaysinline
+          autoplay 
+          controls
+          src="resources/AW1.mp4"
+          class="1"
+          muted="true"                 
+           ></video>
+
+
+<a-assets>
+<a-asset-item id="raccoonModel" src="resources/raccoon/scene.gltf"></a-asset-item>
+</a-assets>
+
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+
+<a-sound id="song3" src="resources/UPS.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+<a-sound id="song2" src="resources/AW.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+<a-sound id="drum" src="resources/drum.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+<a-sound id="piano" src="resources/piano.mp3" autoplay="false" position="0 2 5"></a-sound>
+
+<a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video>
+      
+<a-entity id="example-target"  mindar-image-target="targetIndex: 0">
+<a-video src="#vclip" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video></a-entity>
+
+<a-entity id="example-target1"  mindar-image-target="targetIndex: 1">
+<a-gltf-model rotation="30 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#raccoonModel" animation-mixer></a-entity>
+
+<a-entity id="example-target2"  mindar-image-target="targetIndex: 2">
+</a-entity>
+
+<a-entity id="example-target3"  mindar-image-target="targetIndex: 3">
+<a-video src="#vclip1" width="0.9" height="0.6" rotation="0 0 0" position="0 0 0"></a-video>
+</a-entity>
+
+<a-entity id="thesound3" position="0 2 3" sound="src:#song3; positional:true" ></a-entity>
+
+<a-entity id="thesound" position="0 2 3" sound="src:#song2; positional:true" ></a-entity>
+
+<a-entity id="thesound2" position="0 2 3" sound="src:#drum; positional:true; loop:true" ></a-entity>
+
+
+<a-entity id="thesound1" position="0 2 3" sound="src:#piano; positional:true; loop:true" ></a-entity>
+
+
+<a-entity id="snow" position="0 2.25 -15" visible="false" particle-system="preset: snow; particleCount: 5000"></a-entity>
+
+
+    </a-scene>
+
+  </body>
+<!--------------------Target0------------------------------->
+
+<script>
+const exampleTarget = document.querySelector('#example-target');
+
+exampleTarget.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound3').components.sound.playSound();
+
+var sceneEl = document.querySelector('#vclip').play();
+
+  console.log("target found");
+});
+
+exampleTarget.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound3').components.sound.pauseSound();
+
+var sceneEl = document.querySelector('#vclip').pause();
+
+console.log("target lost");
+});
+</script>
+
+<!--------------------Target1------------------------------->
+
+<script>
+const exampleTarget1 = document.querySelector('#example-target1');
+
+exampleTarget1.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound2').components.sound.playSound();
+
+console.log("target found");
+});
+
+exampleTarget1.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound2').components.sound.pauseSound();
+
+console.log("target lost");
+});
+</script>
+
+<!--------------------Target2------------------------------->
+
+<script>
+const exampleTarget2 = document.querySelector('#example-target2');
+
+exampleTarget2.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#snow').object3D.visible = true;
+
+sceneEl.querySelector('#thesound1').components.sound.playSound();
+
+console.log("target found");
+});
+
+exampleTarget2.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#snow').object3D.visible = false;
+
+sceneEl.querySelector('#thesound1').components.sound.pauseSound();
+
+console.log("target lost");
+});
+</script>
+
+<!--------------------Target3------------------------------->
+
+<script>
+const exampleTarget3 = document.querySelector('#example-target3');
+
+exampleTarget3.addEventListener("targetFound", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound').components.sound.playSound();
+
+
+var sceneEl = document.querySelector('#vclip1').play();
+
+  console.log("target found");
+});
+
+exampleTarget3.addEventListener("targetLost", event => {
+
+var sceneEl = document.querySelector('a-scene');
+
+sceneEl.querySelector('#thesound').components.sound.pauseSound();
+
+
+var sceneEl = document.querySelector('#vclip1').pause();
+
+console.log("target lost");
+});
+</script>
+
+
+
+
+</html>
+
